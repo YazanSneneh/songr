@@ -11,9 +11,9 @@
 <body>
 <div th:each="album : ${albums}">
     <h4>title: <span th:text="${album.getLength()}"> </span> </h4>
-    <h4>Artist:  <span th:text="${album.getTitle()}">Length:</span>  </h4>
-    <h4>Count:  <span th:text="${album.getArtist()}">Length:</span>  </h4>
-    <h4> Length:  <span th:text="${album.getSongCount()}">Length:</span>  </h4>
+    <h4>Artist:  <span th:text="${album.getTitle()}"></span>  </h4>
+    <h4>Count:  <span th:text="${album.getArtist()}"></span>  </h4>
+    <h4> Length:  <span th:text="${album.getSongCount()}"></span>  </h4>
      <img th:src="${album.getImageUrl()}" />
 </div>
 </body>

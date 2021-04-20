@@ -1,10 +1,8 @@
 package com.example.songr;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.net.URL;
+import java.util.ArrayList;
 
 @Entity
 public class Album {
@@ -18,9 +16,11 @@ public class Album {
     private int length;
     private String imageUrl;
 
+    @OneToMany(mappedBy = "album", cascade = CascadeType.ALL) // cascade means if I remove an album, all related songs should be removed
+    private ArrayList<Song>  songs;
     public Album(){
-
     }
+
     public Album(String title, String artist, int songCount, int length, String imageUrl) {
         this.title = title;
         this.artist = artist;

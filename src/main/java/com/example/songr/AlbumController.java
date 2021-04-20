@@ -8,7 +8,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 
 @Controller
-public class ControllerClass {
+public class AlbumController {
     @Autowired
     AlbumRepository albumRepository;
 
@@ -31,14 +31,11 @@ public class ControllerClass {
 
     @GetMapping("/albums")
      public String albumRoute(Model model){
-            Album LifeForRent = new Album("Life for Rent","Dido",20,2,"https://cdn-s3.allmusic.com/release-covers/500/0001/041/0001041545.jpg");
-            Album StillOnMyMind = new Album("Still on My Mind","Dido",5,2,"https://img.discogs.com/tjC-_aFPQn1E9b3eOd4qHzwXPd4=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-307805-1584293948-9468.jpeg.jpg");
-            Album andJusticeForAll = new Album("And justice for all","Metallica",20,2,"https://cdn.europosters.eu/image/1300/textile-postermetallica-and-justice-for-all-i85083.jpg");
 
             model.addAttribute("albums",albumRepository.findAll());
-
         return "albums.html";
     }
+
    @GetMapping("/addAlbum")
    @ResponseBody
     public String getAddAlbumView(){
@@ -55,6 +52,4 @@ public class ControllerClass {
         albumRepository.save(album);
         return new RedirectView("/students");
    }
-
-
 }
