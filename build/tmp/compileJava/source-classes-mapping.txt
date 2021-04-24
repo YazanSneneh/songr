@@ -1,0 +1,8 @@
+com/example/songr/repository/AlbumRepository.java
+ com.example.songr.repository.AlbumRepository
+com/example/songr/SongrApplication.java
+ com.example.songr.SongrApplication
+com/example/songr/controller/AlbumController.java
+ com.example.songr.controller.AlbumController
+com/example/songr/model/Album.java
+ com.example.songr.model.Album

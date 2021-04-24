@@ -14,19 +14,57 @@
   * `resources/templates` contain my html files.
   * `resources/styles.css` contain the file styles.
 
-Running the application:
+**Running the application:**
+* from application run the app from **play button**.
+* from terminal : `./gradlew bootRun`
 1. Navigate to `localhost:port8080` to  basic splash page.
 2. Hello Router: `http://localhost:8080/hello`.
 3. Captialize: `http://localhost:8080/capitalize/{String}`.
 4. Albums list: `http://localhost:8080/albums`
+5. Add New Album `http://localhost:8080/addAlbums`
 
 
-#### lab 12 update
-* `private Integer id` has been added to album class entities.
+## lab 12 update
+ * Project source Structure:
+
+```bash
+.
+├── main
+│   ├── java
+│   │   └── com
+│   │       └── example
+│   │           └── songr
+│   │               ├── SongrApplication.java
+│   │               ├── controller
+│   │               │   └── AlbumController.java
+│   │               ├── model
+│   │               │   └── Album.java
+│   │               └── repository
+│   │                   └── AlbumRepository.java
+│   └── resources
+│       ├── application.properties
+│       ├── static
+│       │   └── style.css
+│       └── templates
+│           ├── addAlbum.html
+│           ├── albums.html
+│           ├── capitalize.html
+│           ├── index.html
+│           ├── songs.html
+│           └── viewOneSong.html
+└── test
+    └── java
+        └── com
+            └── example
+                └── songr
+                    ├── AlbumTest.java
+                    └── SongrApplicationTests.java
+
+```
 * `class interface AlbumRepository extends CrudRepository<Album,Integer>{}` has been added to create middleware object between controller and Database.
 * Connected to postgresdb.
 * Make `Album Class` Entity
-
+* add routes to handle adding data from user.
 #### lab 13 update
 * new Brand Class Has Been added called `class Song{}`.
 * it has a relation One to Many with our `class Album{}`.
@@ -35,17 +73,17 @@ Running the application:
 * `class interface SongRepository extends CrudRepository<Song,Integer>{}` interface middleware with db.
 * `SongController{}` class contain routes for song endpoints.
   * get all songs route
-```
+```java
 @GetMapping("/songs")
     public String getSongRepository(Model model)
 ```
   * get one song route:
-```
+```java
 @GetMapping("/songs/{id}")
     public ResponseEntity<Song> getOneSong(Model model, @PathVariable("id") Integer id)
 ```
   * Add song route:
-```
+```java
  @PostMapping("/addSong")
     public ResponseEntity<Song> addSongToAlbum(@RequestParam(value = "title") String title,
                                                @RequestParam(value = "length") Integer length,
@@ -53,5 +91,3 @@ Running the application:
                                                @RequestParam(value = "album" )Album album)
 
 ```
-
-* connected to postgresdb.
