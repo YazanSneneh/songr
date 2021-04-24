@@ -1,22 +1,24 @@
 package com.example.songr;
 
-import org.junit.Test;
+import static org.junit.Assert.*;
 
+import com.example.songr.model.Album;
+import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-public class AlbumTests {
+public class AlbumTest {
     Album andJusticeForAll = new Album("And justice for all","Metallica",20,2,"https://cdn.europosters.eu/image/1300/textile-postermetallica-and-justice-for-all-i85083.jpg");
     @Test
     public void constructorTest(){
-       assertNotNull("SHould see album string" ,andJusticeForAll.toString());
-
+        assertNotNull("Should see album string" ,andJusticeForAll.toString());
     }
+
     @Test
     public void getTitleTest(){
-       assertEquals("Should see album Title" ,andJusticeForAll.getTitle());
-
+        assertEquals("And justice for all" ,andJusticeForAll.getTitle());
     }
+
     @Test
     public void SetTitleTest(){
         andJusticeForAll.setTitle("Some");
@@ -25,7 +27,7 @@ public class AlbumTests {
 
     @Test
     public void getArtistTest(){
-        assertEquals("SHould see album artist", "metallica" ,andJusticeForAll.getArtist());
+        assertEquals("SHould see album artist", "Metallica" ,andJusticeForAll.getArtist());
     }
     @Test
     public void setArtistTest(){
@@ -34,7 +36,7 @@ public class AlbumTests {
     }
     @Test
     public void getCountTest(){
-        assertEquals("SHould see album string", 20 ,andJusticeForAll.getSongCount());
+        assertEquals("Should see album string", 20 ,andJusticeForAll.getSongCount());
     }
     @Test
     public void setCountTest(){
@@ -53,7 +55,8 @@ public class AlbumTests {
         assertEquals("SHould see album string", "https://cdn.europosters.eu/image/1300/textile-postermetallica-and-justice-for-all-i85083.jpg" ,andJusticeForAll.getImageUrl());
     }
     public void setImageUrlTest(){
-         andJusticeForAll.setImageUrl("default one");
+        andJusticeForAll.setImageUrl("default one");
         assertEquals("see updated path", "default one" ,andJusticeForAll.getImageUrl());
     }
+
 }

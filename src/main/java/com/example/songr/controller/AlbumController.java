@@ -1,13 +1,12 @@
-package com.example.songr;
+package com.example.songr.controller;
 
+import com.example.songr.model.Album;
+import com.example.songr.repository.AlbumRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 public class AlbumController {
@@ -43,7 +42,7 @@ public class AlbumController {
     }
 
     @PostMapping("/albums")
-    public RedirectView addAlbum(@RequestParam("title")String title,
+    public RedirectView  addAlbum(@RequestParam("title")String title,
                                  @RequestParam("artist") String artist,
                                  @RequestParam("countSongs")int countSongs,
                                  @RequestParam("length")int length,
