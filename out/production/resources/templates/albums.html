@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Albums</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div th:each="album : ${albums}">
+    <h4>title: <span th:text="${album.getLength()}"> </span> </h4>
+    <h4>Artist:  <span th:text="${album.getTitle()}"></span>  </h4>
+    <h4>Count:  <span th:text="${album.getArtist()}"></span>  </h4>
+    <h4> Length:  <span th:text="${album.getSongCount()}"></span>  </h4>
+     <img th:src="${album.getImageUrl()}" />
+</div>
+</body>
+</html>
