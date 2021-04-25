@@ -2,7 +2,13 @@ com/example/songr/repository/AlbumRepository.java
  com.example.songr.repository.AlbumRepository
 com/example/songr/SongrApplication.java
  com.example.songr.SongrApplication
-com/example/songr/controller/AlbumController.java
- com.example.songr.controller.AlbumController
+com/example/songr/repository/SongRepository.java
+ com.example.songr.repository.SongRepository
 com/example/songr/model/Album.java
  com.example.songr.model.Album
+com/example/songr/controller/SongController.java
+ com.example.songr.controller.SongController
+com/example/songr/model/Song.java
+ com.example.songr.model.Song
+com/example/songr/controller/AlbumController.java
+ com.example.songr.controller.AlbumController

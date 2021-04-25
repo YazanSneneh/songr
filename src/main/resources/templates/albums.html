@@ -14,7 +14,17 @@
     <h4>Artist:  <span th:text="${album.getTitle()}"></span>  </h4>
     <h4>Count:  <span th:text="${album.getArtist()}"></span>  </h4>
     <h4> Length:  <span th:text="${album.getSongCount()}"></span>  </h4>
-     <img th:src="${album.getImageUrl()}" />
+    <img th:src="${album.getImageUrl()}" />
+
+    <h2>Songs list</h2>
+    <ul th:each="song : ${album.getSongs()}">
+       <li> <h5> Title: <span th:text="${song.getTitle()}"></span></h5> </li>
+        <li> <p> Song ID: <span th:text="${song.getId()}"></span></p> </li>
+        <li><p> length <span th:text="${song.getLength()}"></span></p> </li>
+        <li> <p> Track Number : <span th:text="${song.getTrackNumber()}"></span></p> </li>
+    </ul>
+    <hr>
 </div>
+
 </body>
 </html>

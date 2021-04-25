@@ -55,5 +55,12 @@ public class AlbumController {
         return  new RedirectView("/albums");
     }
 
+    @GetMapping("/album/{param}")
+    public String viewAlbum(Model model, @PathVariable("param")int id){
+        Album album = albumRepository.findById(id).get();
+        model.addAttribute("album", album);
+        return "viewOneAlbum.html";
+    }
+
 }
 

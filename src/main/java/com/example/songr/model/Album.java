@@ -1,20 +1,30 @@
 package com.example.songr.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Album {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
     private String title;
     private String artist;
     private int songCount;
     private int length;
     private String imageUrl;
+
+
+    /*
+    * when I created many to one relation : id has been added to song table refer to album
+    * when i create one to many relation it will also add id of song in album table.
+    * this is wrong because I join the album to each song but i don't have to add each song to album
+    * to avoid this i map it by the album object.
+    * like below
+    */
+    @OneToMany(mappedBy = "album", cascade = CascadeType.ALL)
+    private List<Song> songs;
+
 
     public Album(){}
 
@@ -66,14 +76,8 @@ public class Album {
         return imageUrl;
     }
 
-    @Override
-    public String toString() {
-        return "Album{" +
-                "title='" + title + '\'' +
-                ", artist='" + artist + '\'' +
-                ", songCount=" + songCount +
-                ", length=" + length +
-                ", imageUrl='" + imageUrl + '\'' +
-                '}';
+    public List<Song> getSongs() {
+        return songs;
     }
+
 }
