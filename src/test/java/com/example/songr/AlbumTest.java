@@ -1,11 +1,10 @@
 package com.example.songr;
 
-import static org.junit.Assert.*;
-
 import com.example.songr.model.Album;
 import org.junit.Test;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+
+import static org.junit.Assert.*;
+import static org.springframework.test.util.AssertionErrors.assertNotNull;
 
 public class AlbumTest {
     Album andJusticeForAll = new Album("And justice for all","Metallica",20,2,"https://cdn.europosters.eu/image/1300/textile-postermetallica-and-justice-for-all-i85083.jpg");

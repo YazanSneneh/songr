@@ -13,10 +13,10 @@ public class AlbumController {
 
     @Autowired
     AlbumRepository albumRepository;
-    @GetMapping("/hello")
+    @PostMapping("/hello")
     @ResponseBody
-    public String helloWorld(){
-        return "hello router";
+    public String helloWorld(@RequestParam("name")String name){
+        return "hello "+name;
     }
 
     @GetMapping("capitalize/{param}")
@@ -62,5 +62,25 @@ public class AlbumController {
         return "viewOneAlbum.html";
     }
 
+    @DeleteMapping("album/{id}")
+    public RedirectView deleteAlbume(@PathVariable("id")int id){
+        System.out.println("Item with id success delete: " + id);
+        albumRepository.deleteById(id);
+        return new RedirectView("/albums");
+    }
+    @PutMapping("album/{id}")
+    public RedirectView updateAlbum(@PathVariable("id") int id,
+                                     @RequestParam("title") String title,
+                                    @RequestParam("artist") String  artist ,
+                                    @RequestParam("countSongs") int songCount ,
+                                    @RequestParam("length") int length){
+        Album album = albumRepository.findById(id).get();
+        album.setTitle(title);
+        album.setArtist(artist);
+        album.setSongCount(songCount);
+        album.setLength(length);
+        albumRepository.save(album);
+        return new RedirectView("/album/"+id);
+    }
 }
 
