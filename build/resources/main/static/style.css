@@ -1,6 +1,16 @@
 body{
 background-color:#1b1717;
+background-image:url("https://steamuserimages-a.akamaihd.net/ugc/911283474667395921/DA453A453F442A5B38C897CBDF727D3E49A570F6/");
+background-size:100%;
 color:#1b1717;
 text-align:center;
 color: #eee;
 }
+.album{
+}
+.songs_list{
+display:inline-block;
+width: 40%;
+ }
+
+

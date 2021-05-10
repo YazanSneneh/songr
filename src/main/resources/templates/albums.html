@@ -9,12 +9,29 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div th:each="album : ${albums}">
-    <h4>title: <span th:text="${album.getLength()}"> </span> </h4>
-    <h4>Artist:  <span th:text="${album.getTitle()}"></span>  </h4>
-    <h4>Count:  <span th:text="${album.getArtist()}"></span>  </h4>
-    <h4> Length:  <span th:text="${album.getSongCount()}"></span>  </h4>
-     <img th:src="${album.getImageUrl()}" />
-</div>
+<main>
+    <section id="albums">
+<article class="album" th:each="album : ${albums}">
+       <section class="songs_list">
+           <img th:src="${album.getImageUrl()}" />
+           <h4>Length: <span th:text="${album.getLength()}"> </span> </h4>
+           <h4>Title:  <span th:text="${album.getTitle()}"></span>  </h4>
+           <h4>Artist:  <span th:text="${album.getArtist()}"></span>  </h4>
+           <h4> Number # :  <span th:text="${album.getSongCount()}"></span>  </h4>
+
+       </section>
+        <section class="songs_list">
+            <h2>Songs list</h2>
+            <ul th:each="song : ${album.getSongs()}">
+                <li> <h5> Title: <span th:text="${song.getTitle()}"></span></h5> </li>
+                <li> <p> Song ID: <span th:text="${song.getId()}"></span></p> </li>
+                <li><p> length <span th:text="${song.getLength()}"></span></p> </li>
+                <li> <p> Track Number : <span th:text="${song.getTrackNumber()}"></span></p> </li>
+            </ul>
+
+        </section>
+</article>
+    </section>
+</main>
 </body>
 </html>

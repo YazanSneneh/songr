@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title > Abum</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Title:  <span th:text="${album.getTitle()}"></span>  </h1>
+<h4>length: <span th:text="${album.getLength()}"> </span> </h4>
+<h4>Artist:  <span th:text="${album.getArtist()}"></span>  </h4>
+<h4> song count :  <span th:text="${album.getSongCount()}"></span>  </h4>
+<img th:src="${album.getImageUrl()}" />
+
+<section>
+
+    <form  th:action="@{'/album/{id}'(id=${album.getId()})}" th:method="Post">
+
+        <button type="submit" name="_method" value="DELETE">Delete</button>
+    </form>
+
+    <form th:action="@{/album/{id} (id=${album.getId()})}" method="post"><br>
+        Album Title: <input type="text" name="title" th:value="${album.getTitle()}"> <br>
+        Album Artist: <input type="text" name="artist"  th:value="${album.getArtist()}"> <br>
+        Album Count Songs <input type="number" name="countSongs"  th:value="${album.getSongCount()}"> <br>
+        Album Length :<input type="number" name="length"  th:value="${album.getLength()}"> <br>
+
+        <button type="submit" name="_method" value="PUT"> Update </button>
+    </form>
+</section>
+<h2>Songs list</h2>
+<ul th:each="song : ${album.getSongs()}">
+    <li> <h5> Title: <span th:text="${song.getTitle()}"></span></h5> </li>
+    <li> <p> Song ID: <span th:text="${song.getId()}"></span></p> </li>
+    <li><p> length <span th:text="${song.getLength()}"></span></p> </li>
+    <li> <p> Track Number : <span th:text="${song.getTrackNumber()}"></span></p> </li>
+    <hr>
+</ul>
+
+</body>
+</html>

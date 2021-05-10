@@ -3,6 +3,16 @@
 * to run application from terminal use this command:  `./gradlew bootRun`
 * or run inside application from IDE **press run button**.
 
+* Routes :
+  * to get all songs : `http://localhost:8080/songs`
+  * to get one songs : `http://localhost:8080/song/{id}`
+  * to get all albums : `http://localhost:8080/albums`
+  * to get one album : `http://localhost:8080/album/{id}`
+  * home page : `http://localhost:8080/`
+  * hello page : `http://localhost:8080/hello`
+  * capitalize page : `http://localhost:8080/capitalize/{param}`
+
+
 * Understanding project strucutre
   * I have inside `src/main/java/com.example.songr` 3 classes,
     *  1 is the `SongrApplication()`.
@@ -65,6 +75,7 @@
 * Connected to postgresdb.
 * Make `Album Class` Entity
 * add routes to handle adding data from user.
+* 
 #### lab 13 update
 * new Brand Class Has Been added called `class Song{}`.
 * it has a relation One to Many with our `class Album{}`.
@@ -72,7 +83,8 @@
   * contain `Album object` to map 1 to many relationship.
 * `class interface SongRepository extends CrudRepository<Song,Integer>{}` interface middleware with db.
 * `SongController{}` class contain routes for song endpoints.
-  * get all songs route
+
+
 ```java
 @GetMapping("/songs")
     public String getSongRepository(Model model)
